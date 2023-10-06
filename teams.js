@@ -10,7 +10,7 @@
     // Insert text into the eight <p> elements using the function.
   // Match 1
   setTextContent("match1", "Match Name");
-    setTextContent("team1", "Text for team 1");
+    setTextContent("team1", "Text for team1");
     setTextContent("team2", "Text for team 2");
     setTextContent("time1", "10:30PM IST | 10:00PM GST | 10:00PM AST");
   // Match 2
