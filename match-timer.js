@@ -1,8 +1,8 @@
 const targetDates = [
-        new Date('2023-10-06T20:30:00').getTime(),
-        new Date('2023-10-05T20:00:10').getTime(),
-        new Date('2023-10-04T15:03:00').getTime(),
-        new Date('2023-10-03T12:53:00').getTime()
+        new Date('2023-10-08T20:30:00').getTime(),
+        new Date('2023-10-07T20:00:10').getTime(),
+        new Date('2023-10-07T15:03:00').getTime(),
+        new Date('2023-10-07T12:53:00').getTime()
       ];
 
 function updateTimers() {
