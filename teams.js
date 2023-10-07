@@ -37,10 +37,10 @@
     setTextContent("team8", "Text for team 8");
     setTextContent("time4", "10:35PM IST | 10:00PM GST | 10:00PM AST");
 
-    setTeamLogoSrc("team1-logo", "https://logowik.com/content/uploads/images/brazil-national-football-team1330.logowik.com.webp");
-    setTeamLogoSrc("team2-logo", "team2-logo.jpg");
-    setTeamLogoSrc("team3-logo", "team3-logo.jpg");
-    setTeamLogoSrc("team4-logo", "team4-logo.jpg");
+    setTeamLogoSrc("team1-logo", "https://banner2.cleanpng.com/20180718/a/kisspng-brazil-national-football-team-2014-fifa-world-cup-camisa-brasil-5b4f1a28b2c693.9926342415319106967323.jpg");
+    setTeamLogoSrc("team2-logo", "https://www.uaefa.ae/api/public/img/logo/e8cb1894e09541c690a69ad547fef0c5.png");
+    setTeamLogoSrc("team3-logo", "https://static.toiimg.com/thumb/msid-77700605,width-400,resizemode-4/77700605.jpg");
+    setTeamLogoSrc("team4-logo", "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/1200px-Chennai_Super_Kings_Logo.svg.png");
     setTeamLogoSrc("team5-logo", "team5-logo.jpg");
     setTeamLogoSrc("team6-logo", "team6-logo.jpg");
     setTeamLogoSrc("team7-logo", "team7-logo.jpg");
