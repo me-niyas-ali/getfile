@@ -1,5 +1,5 @@
     // Function to safely set text content of an element if it exists.
-    function setTextContent(id, text) {
+    function setTextContent(id, id, text) {
       var element = document.getElementById(id);
       if (element) {
         element.textContent = text;
