@@ -35,7 +35,7 @@
   setTextContent("match4", "Match Name");
     setTextContent("team7", "Text for team 7");
     setTextContent("team8", "Text for team 8");
-    setTextContent("time3", "10:35PM IST | 10:00PM GST | 10:00PM AST");
+    setTextContent("time4", "10:35PM IST | 10:00PM GST | 10:00PM AST");
 
     setTeamLogoSrc("team1-logo", "https://logowik.com/content/uploads/images/brazil-national-football-team1330.logowik.com.webp");
     setTeamLogoSrc("team2-logo", "team2-logo.jpg");
