@@ -36,6 +36,26 @@
     setTextContent("team7", "Text for team 7");
     setTextContent("team8", "Text for team 8");
     setTextContent("time4", "10:35PM IST | 10:00PM GST | 10:00PM AST");
+  // Match 5
+  setTextContent("match5", "Match Name");
+    setTextContent("team9", "Text for team 9");
+    setTextContent("team10", "Text for team 10");
+    setTextContent("time5", "10:35PM IST | 10:00PM GST | 10:00PM AST");
+  // Match 6
+  setTextContent("match6", "Match Name");
+    setTextContent("team11", "Text for team 11");
+    setTextContent("team12", "Text for team 12");
+    setTextContent("time6", "10:35PM IST | 10:00PM GST | 10:00PM AST");
+  // Match 7
+  setTextContent("match7", "Match Name");
+    setTextContent("team13", "Text for team 13");
+    setTextContent("team14", "Text for team 14");
+    setTextContent("time7", "10:35PM IST | 10:00PM GST | 10:00PM AST");
+  // Match 8
+  setTextContent("match8", "Match Name");
+    setTextContent("team15", "Text for team 15");
+    setTextContent("team16", "Text for team 16");
+    setTextContent("time8", "10:40PM IST | 10:00PM GST | 10:00PM AST");
 
     setTeamLogoSrc("team1-logo", "https://banner2.cleanpng.com/20180718/a/kisspng-brazil-national-football-team-2014-fifa-world-cup-camisa-brasil-5b4f1a28b2c693.9926342415319106967323.jpg");
     setTeamLogoSrc("team2-logo", "https://www.uaefa.ae/api/public/img/logo/e8cb1894e09541c690a69ad547fef0c5.png");
