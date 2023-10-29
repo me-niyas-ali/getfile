@@ -582,7 +582,7 @@ $(document).ready(function(){
     <div class='card card--featured' id='passion'>
      <div class='card__side-by-side--m'>
       <div class='card__image'>
-       <video autoplay loop class="video">
+       <video autoplay muted controls loop class="video">
       <source src="https://niyasali96.github.io/getfile/cover-video.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
@@ -659,11 +659,6 @@ function toggleSlidingCard2() {
     const slidingCard2 = document.getElementById("slidingCard2");
     slidingCard2.classList.toggle("show-card");
 }
-</script>
-<script>
-var video = document.querySelector('video');
-video.muted = true;
-video.play()
 </script>
  </body>
 </html>
