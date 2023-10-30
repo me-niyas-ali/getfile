@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
  <head>
@@ -20,7 +21,17 @@
     /* IE 10 and IE 11 */
     user-select: none;
     /* Standard syntax */
-   }
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
 
    body {
     font-family: "Open Sans", sans-serif;
@@ -45,7 +56,7 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
-    animation: fadeout 2s;
+    animation: fadeout 2.5s;
    }
 
    @keyframes fadeout {
@@ -607,7 +618,7 @@ $(document).ready(function(){
    setTimeout(function() {
     document.querySelector('.loader-container').style.display = 'none';
     document.querySelector('.content').style.display = 'block';
-   }, 2000); // 2 seconds
+   }, 1900); // 2 seconds
   </script>
   <script>
    // Change style of navbar on scroll
