@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
  <head>
@@ -67,7 +71,7 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  animation: spin 2s linear infinite;
+  animation: spin 0.6s linear infinite;
 }
 
 .overlay {
@@ -83,29 +87,31 @@
 }
 
 .overlay-content {
-  background-color: white;
   padding: 20px;
   border-radius: 5px;
+  position: relative;
+  height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
-.overlay button {
-  border: none;
-  outline: 0;
-  padding: 8px 16px;
-  background-color: #3498db;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
+.loader-btn {
+    margin: 1.6rem 0;
+    text-align: center;
+    padding: 0.8rem 1.6rem;
+    background: none;
+    color:white;
+    border: 2px solid white;
+    border-radius: 3px;
+   }
 
-.overlay button:hover {
-  background-color: #555;
-}
+.loader-btn:hover {
+    border-color: none;
+    color:black;
+    background: white;
+   }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -426,6 +432,14 @@
     width: 100%;
     height: auto;
 }
+#loader-vdo {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
   </style>
   
   <script>
@@ -461,8 +475,9 @@ $(document).ready(function(){
   </div>
 </div>
 <div class="overlay" id="overlay" style="display: none;">
+<video id="loader-vdo" src="https://niyasali96.github.io/getfile/cover-vdo.mp4" autoplay loop playsinline muted></video>
   <div class="overlay-content">
-    <button id="closeOverlay">Lets Go</button>
+    <button id="closeOverlay" class='loader-btn'>Lets Go</button>
   </div>
 </div>
   <!--<div class="w3-top w3-center" style="top:10px"><div class="w3-bar w3-white" id="myNavbar" style="border: 1px solid rgba(0, 0, 0, 0.2);"><a href="#home" class="w3-bar-item font-three w3-button"><i class="fa fa-home"></i> HOME </a><a href="#projects" class="w3-bar-item font-three w3-button"><i class="fa fa-laptop"></i> PROJECTS </a></div></div>-->
@@ -686,7 +701,7 @@ function toggleSlidingCard2() {
       // Show the overlay
       var overlay = document.getElementById("overlay");
       overlay.style.display = "block";
-    }, 2000);
+    }, 1000);
   });
 
   // Close the overlay when the button is clicked
