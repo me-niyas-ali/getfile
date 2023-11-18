@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='vegeclub.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:view.title.escaped/></title>
+    <b:include data='blog' name='all-head-content'/>
+
+    <b:skin version='1.3.3'><![CDATA[
+
+]]></b:skin>
+
+
+    <b:defaultmarkups>
+      <b:defaultmarkup type='Common'>
+        <b:includable id='feedPostImage'>
+          <div class='snippet-thumbnail-container'>
+            <div expr:class='&quot;snippet-thumbnail &quot; + data:thumbClassName'/>
+          </div>
+        </b:includable>
+      </b:defaultmarkup>
+    </b:defaultmarkups>
+
+    <b:if cond='data:blog.adsenseClientId and !data:widgets.AdSense.empty and not data:blog.adsenseAutoAds'>
+      <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
+    </b:if>
+    <b:include data='blog' name='google-analytics'/>
+
+    <script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/>
+  </head>
+
+  <body>
+    <b:class cond='data:view.isPreview' name='preview'/>
+    <b:class cond='data:view.isMultipleItems' name='feed-view'/>
+    <b:class cond='data:view.isSingleItem' name='item-view'/>
+    <b:class cond='data:view.isArchive' name='archive-view'/>
+    <b:class cond='data:view.isLabelSearch' name='label-view'/>
+    <b:class cond='data:view.isSearch and !data:view.isLabelSearch' name='search-view'/>
+    <b:class cond='data:view.isError' name='error-view'/>
+    <b:class name='version-1-3-3'/>
+
+    <div class='page'>
+      <b:with value='data:widgets.AdSense any (w =&gt; w.sectionId == &quot;ads&quot;)' var='hasVerticalAds'>
+        <div class='page_body'>
+          <b:class cond='data:hasVerticalAds' name='has-vertical-ads'/>
+          <div class='centered'>
+            <div class='centered-bottom'>
+              <main class='main-container' id='main' role='main' tabindex='-1'>
+                <b:section class='featured-post' id='featured_post' name='Featured Post' showaddelement='false'>
+                  <b:widget cond='data:view.isHomepage' id='FeaturedPost1' locked='true' title='' type='FeaturedPost' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='showSnippet'>false</b:widget-setting>
+                      <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                      <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+                      <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main' var='this'/>
+                    <b:includable id='blogThisShare'/>
+                    <b:includable id='bylineByName' var='byline'/>
+                    <b:includable id='bylineRegion' var='regionItems'/>
+                    <b:includable id='commentsLink'/>
+                    <b:includable id='commentsLinkIframe'/>
+                    <b:includable id='emailPostIcon'/>
+                    <b:includable id='facebookShare'/>
+                    <b:includable id='footerBylines'/>
+                    <b:includable id='googlePlusShare'/>
+                    <b:includable id='headerByline'/>
+                    <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+                    <b:includable id='otherSharingButton'/>
+                    <b:includable id='platformShare'/>
+                    <b:includable id='postAuthor'/>
+                    <b:includable id='postCommentsLink'/>
+                    <b:includable id='postJumpLink' var='post'/>
+                    <b:includable id='postLabels'/>
+                    <b:includable id='postLocation'/>
+                    <b:includable id='postReactions'/>
+                    <b:includable id='postShareButtons' var='post'/>
+                    <b:includable id='postTimestamp'/>
+                    <b:includable id='postWrapperClasses'/>
+                    <b:includable id='sharingButton'/>
+                    <b:includable id='sharingButtonContent'/>
+                    <b:includable id='sharingButtons'/>
+                    <b:includable id='sharingButtonsMenu'/>
+                    <b:includable id='sharingPlatformIcon'/>
+                    <b:includable id='snippetedPostByline'/>
+                    <b:includable id='snippetedPostContent'/>
+                    <b:includable id='snippetedPostThumbnail'/>
+                    <b:includable id='snippetedPostTitle'/>
+                    <b:includable id='snippetedPosts'/>
+                  </b:widget>
+                </b:section>
+
+                <b:section class='main' id='page_body' name='Page Body' showaddelement='false'>
+                  <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+                    <b:widget-settings>
+                      <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                      <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                      <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='showAuthor'>false</b:widget-setting>
+                      <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                      <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='reactionsLabel'/>
+                      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                      <b:widget-setting name='showLabels'>true</b:widget-setting>
+                      <b:widget-setting name='showLocation'>true</b:widget-setting>
+                      <b:widget-setting name='postLabelsLabel'/>
+                      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                      <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                      <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                      <b:widget-setting name='showReactions'>false</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main'>
+          <b:include name='noContentPlaceholder'/>
+          <b:include name='super.main'/>
+        </b:includable>
+                    <b:includable id='aboutPostAuthor'/>
+                    <b:includable id='addComments'/>
+                    <b:includable id='blogThisShare'/>
+                    <b:includable id='bylineByName' var='byline'/>
+                    <b:includable id='bylineRegion' var='regionItems'/>
+                    <b:includable id='commentAuthorAvatar'/>
+                    <b:includable id='commentDeleteIcon' var='comment'/>
+                    <b:includable id='commentForm' var='post'/>
+                    <b:includable id='commentFormIframeSrc' var='post'/>
+                    <b:includable id='commentItem' var='comment'/>
+                    <b:includable id='commentList' var='comments'/>
+                    <b:includable id='commentPicker' var='post'/>
+                    <b:includable id='comments' var='post'/>
+                    <b:includable id='commentsLink'/>
+                    <b:includable id='commentsLinkIframe'/>
+                    <b:includable id='commentsTitle'/>
+                    <b:includable id='defaultAdUnit'/>
+                    <b:includable id='emailPostIcon'/>
+                    <b:includable id='facebookShare'/>
+                    <b:includable id='feedLinks'/>
+                    <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:messages.subscribeTo/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+                    <b:includable id='footerBylines'/>
+                    <b:includable id='googlePlusShare'/>
+                    <b:includable id='headerByline'/>
+                    <b:includable id='homePageLink'/>
+                    <b:includable id='iframeComments' var='post'/>
+                    <b:includable id='inlineAd' var='post'/>
+                    <b:includable id='linkShare'/>
+                    <b:includable id='nextPageLink'/>
+                    <b:includable id='otherSharingButton'/>
+                    <b:includable id='platformShare'/>
+                    <b:includable id='post' var='post'>
+          <b:with value='&quot;post-thumb-&quot; + data:post.id' var='thumbClassName'>
+            <div expr:class='&quot;post-wrapper not-hero post-&quot; + data:post.id'>
+              <b:include name='postWrapperClasses'/>
+
+              <!-- Standard feed thumbs always added, as they're needed for mobile view. -->
+              <b:include cond='data:post.featuredImage and data:view.isMultipleItems' name='standardPostImageStyle'/>
+              <b:include name='feedPostImage'/>
+
+              <div class='slide'>
+                <b:include data='post' name='super.post'/>
+              </div>
+            </div>
+          </b:with>
+        </b:includable>
+                    <b:includable id='postAuthor'/>
+                    <b:includable id='postBody' var='post'>
+  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
+  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
+    <data:post.body/>
+  </div>
+</b:includable>
+                    <b:includable id='postBodySnippet' var='post'/>
+                    <b:includable id='postCommentsAndAd'>
+          <b:include cond='not data:view.isHomepage or                            data:widgets.FeaturedPost none (w =&gt; w.sectionId == &quot;featured_post&quot; and w.postId == data:post.id)' name='super.postCommentsAndAd'/>
+        </b:includable>
+                    <b:includable id='postCommentsLink'/>
+                    <b:includable id='postFooter' var='post'/>
+                    <b:includable id='postFooterAuthorProfile' var='post'/>
+                    <b:includable id='postHeader' var='post'/>
+                    <b:includable id='postJumpLink' var='post'/>
+                    <b:includable id='postLabels'/>
+                    <b:includable id='postLocation'/>
+                    <b:includable id='postMeta' var='post'/>
+                    <b:includable id='postMetadataJSONImage'/>
+                    <b:includable id='postMetadataJSONPublisher'/>
+                    <b:includable id='postPagination'/>
+                    <b:includable id='postReactions'/>
+                    <b:includable id='postShareButtons' var='post'/>
+                    <b:includable id='postTimestamp'/>
+                    <b:includable id='postTitle' var='post'/>
+                    <b:includable id='postWrapperClasses'/>
+                    <b:includable id='previousPageLink'/>
+                    <b:includable id='sharingButton'/>
+                    <b:includable id='sharingButtonContent'/>
+                    <b:includable id='sharingButtons'/>
+                    <b:includable id='sharingButtonsMenu'/>
+                    <b:includable id='sharingPlatformIcon'/>
+                    <b:includable id='snippetedPostThumbnail'> </b:includable>
+                    <b:includable id='threadedCommentForm' var='post'/>
+                    <b:includable id='threadedCommentJs' var='post'/>
+                    <b:includable id='threadedComments' var='post'/>
+                  </b:widget>
+                </b:section>
+              </main>
+
+              <b:section ads='true' class='vertical-ad-container' id='ads' name='Ads' showaddelement='false'>
+                <b:widget id='AdSense1' locked='true' title='' type='AdSense' version='2' visible='false'>
+                  <b:includable id='main'/>
+                  <b:includable id='defaultAdUnit'/>
+                </b:widget>
+                <b:widget id='AdSense2' locked='true' title='' type='AdSense' version='2' visible='false'>
+                  <b:includable id='main'/>
+                  <b:includable id='defaultAdUnit'/>
+                </b:widget>
+              </b:section>
+
+              <aside class='sidebar-container container' role='complementary'>
+                <b:class cond='not data:view.isSingleItem' name='sidebar-invisible'/>
+                <b:if cond='not data:view.isSingleItem or data:view.isLayoutMode'>
+                  <b:section class='sidebar' id='sidebar_feed' name='Sidebar' preferred='yes'>
+                    <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='2' visible='false'>
+                      <b:widget-settings>
+                        <b:widget-setting name='showaboutme'>true</b:widget-setting>
+                        <b:widget-setting name='showlocation'>false</b:widget-setting>
+                      </b:widget-settings>
+                      <b:includable id='main'/>
+                      <b:includable id='authorProfileImage'/>
+                      <b:includable id='content'/>
+                      <b:includable id='defaultProfileImage'/>
+                      <b:includable id='profileImage'>
+  <b:if cond='data:authorPhoto.image'>
+    <b:include name='authorProfileImage'/>
+  <b:else/>
+    <b:include name='defaultProfileImage'/>
+  </b:if>
+</b:includable>
+                      <b:includable id='teamProfile'/>
+                      <b:includable id='teamProfileLink'/>
+                      <b:includable id='userLocation'/>
+                      <b:includable id='userProfile'/>
+                      <b:includable id='userProfileData'/>
+                      <b:includable id='userProfileImage'/>
+                      <b:includable id='userProfileInfo'/>
+                      <b:includable id='userProfileText'/>
+                      <b:includable id='viewProfileLink'/>
+                    </b:widget>
+                    <b:widget id='BlogArchive1' locked='false' title='' type='BlogArchive' version='2' visible='true'>
+                      <b:widget-settings>
+                        <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
+                        <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+                        <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+                        <b:widget-setting name='monthPattern'>MMMM yyyy</b:widget-setting>
+                        <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+                        <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+                        <b:widget-setting name='chronological'>false</b:widget-setting>
+                        <b:widget-setting name='showPosts'>true</b:widget-setting>
+                        <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+                      </b:widget-settings>
+                      <b:includable id='main' var='this'/>
+                      <b:includable id='content'/>
+                      <b:includable id='flat'/>
+                      <b:includable id='hierarchy'/>
+                      <b:includable id='interval' var='intervals'/>
+                      <b:includable id='posts' var='posts'/>
+                    </b:widget>
+                    <b:widget id='Label1' locked='false' title='Labels' type='Label' version='2' visible='true'>
+                      <b:widget-settings>
+                        <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+                        <b:widget-setting name='display'>LIST</b:widget-setting>
+                        <b:widget-setting name='selectedLabelsList'/>
+                        <b:widget-setting name='showType'>ALL</b:widget-setting>
+                        <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+                      </b:widget-settings>
+                      <b:includable id='main' var='this'/>
+                      <b:includable id='cloud'/>
+                      <b:includable id='content'/>
+                      <b:includable id='list'/>
+                    </b:widget>
+                    <b:widget id='ReportAbuse1' locked='true' title='' type='ReportAbuse' version='2' visible='true'>
+                      <b:includable id='main'/>
+                    </b:widget>
+                  </b:section>
+                </b:if>
+                <b:if cond='data:view.isSingleItem or data:view.isLayoutMode'>
+                  <b:section id='sidebar_item' name='Sidebar (Item Page)'>
+                    <b:widget cond='data:posts any (p =&gt; p.id != data:view.postId)' id='PopularPosts1' locked='true' title='' type='PopularPosts' version='2' visible='true'>
+                      <b:widget-settings>
+                        <b:widget-setting name='numItemsToShow'>3</b:widget-setting>
+                        <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                        <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                        <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+                      </b:widget-settings>
+                      <b:includable id='main'/>
+                      <b:includable id='blogThisShare'/>
+                      <b:includable id='bylineByName' var='byline'/>
+                      <b:includable id='bylineRegion' var='regionItems'/>
+                      <b:includable id='commentsLink'/>
+                      <b:includable id='commentsLinkIframe'/>
+                      <b:includable id='emailPostIcon'/>
+                      <b:includable id='facebookShare'/>
+                      <b:includable id='footerBylines'/>
+                      <b:includable id='googlePlusShare'/>
+                      <b:includable id='headerByline'/>
+                      <b:includable id='itemBody' var='post'/>
+                      <b:includable id='linkShare'/>
+                      <b:includable id='otherSharingButton'/>
+                      <b:includable id='platformShare'/>
+                      <b:includable id='postAuthor'/>
+                      <b:includable id='postCommentsLink'/>
+                      <b:includable id='postJumpLink' var='post'/>
+                      <b:includable id='postLabels'/>
+                      <b:includable id='postLocation'/>
+                      <b:includable id='postReactions'/>
+                      <b:includable id='postShareButtons'/>
+                      <b:includable id='postTimestamp'/>
+                      <b:includable id='sharingButton'/>
+                      <b:includable id='sharingButtonContent'/>
+                      <b:includable id='sharingButtons'/>
+                      <b:includable id='sharingButtonsMenu'/>
+                      <b:includable id='sharingPlatformIcon'/>
+                      <b:includable id='snippetedPostByline'/>
+                      <b:includable id='snippetedPostContent'/>
+                      <b:includable id='snippetedPostThumbnail'/>
+                      <b:includable id='snippetedPostTitle'/>
+                      <b:includable id='snippetedPosts'/>
+                    </b:widget>
+                  </b:section>
+                </b:if>
+              </aside>   <!-- close sidebar-container -->
+            </div>  <!-- close centered-bottom -->
+          </div>  <!-- close centered -->
+        </div>  <!-- close page_body -->
+      </b:with>
+
+    </div>
+
+    <b:template-script async='true' name='vegeclub' version='1.0.0'/>
+  </body>
+</html>
