@@ -1,0 +1,106 @@
+  input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: block;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: block;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .add-btn,
+  .clear-all-btn {
+    width: 49%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .add-btn:hover,
+  .clear-all-btn:hover {
+    background-color: #45a049;
+  }
+
+  div.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .order-id {
+    width: 100%;
+    padding: 6px 20px;
+    margin: 8px 0;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: #04AA6D;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .total {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: block;
+    text-align: center;
+    background-color: white;
+    border: 2px solid #a6a6a6;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .added-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 18px;
+    margin: 5px 0;
+    box-sizing: border-box;
+  }
+
+  .close-btn {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid red;
+    border-radius: 4px;
+    padding: 3px 6px;
+  }
