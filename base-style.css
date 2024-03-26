@@ -1,0 +1,427 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Sarala&family=Whisper&display=swap');
+
+
+.whisper-regular {
+  font-family: "Whisper", cursive;
+  font-style: normal;
+  font-size:65px;
+  text-align:center;
+  width: 80%;
+}
+
+  body {
+    background-color: #f2f2f2;
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:13px;
+  }
+    
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    padding: 10px;
+    max-width: 800px; /* Set maximum width */
+    margin: 0 auto; /* Center the grid */
+  }
+
+  .grid-item {
+    background-color: white;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 0; /* Remove padding to allow video to cover the entire grid item */
+    position: relative;
+    overflow: hidden; /* Ensure video doesn't overflow grid item */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .grid-item img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover; /* Ensure image covers the entire container */
+  }
+
+  .grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure video covers the entire container */
+  }
+
+  .grid-item-1 {
+    grid-row: span 2;
+    grid-column: span 2;
+    aspect-ratio: 1/1.02; /* Aspect ratio for grid item 1 */
+  }
+
+  .grid-item-2 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 2 */
+  }
+
+  .grid-item-3 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 3 */
+  }
+
+  .grid-item-4 {
+    aspect-ratio: 2/1; /* Aspect ratio for grid item 4 */
+    grid-column: span 2;
+  }
+
+  .grid-item-5 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 5 */
+  }
+
+  .grid-item-6 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 6 */
+  }
+  
+  .btn-on-img {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    margin: 1.6rem 0;
+    text-align: center;
+    padding: 0.5rem 1.6rem;
+    white-space: nowrap;
+    background: none;
+    color:white;
+    border: 2px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .btn-on-img:hover {
+    border-color: none;
+    color:white;
+    background: rgb(255, 255, 255, 0.5);
+  }
+  
+  .btn-on-img2 {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    margin: 1.6rem 0;
+    text-align: center;
+    padding: 0.5rem 1.6rem;
+    white-space: nowrap;
+    background: none;
+    color:white;
+    border: 2px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .btn-on-img2:hover {
+    border-color: none;
+    color:white;
+    background: rgb(255, 255, 255, 0.5);
+  }
+
+  .grid-item-7 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 7 */
+  }
+
+  .grid-item-8 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 8 */
+  }
+
+  .grid-item-9 {
+    aspect-ratio: 2/1; /* Aspect ratio for grid item 9 */
+    grid-column: span 4;
+    grid-row: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+  }
+
+  .grid-item-9 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .grid-item-9-text {
+    padding: 20px;
+    text-align: left; /* Center text horizontally */
+    font-size:13px;
+  }
+  
+  .grid-item-10 {
+    aspect-ratio: 1/1; /* Aspect ratio for grid item 10 */
+  }
+  
+  .grid-item-11 {
+    grid-row: span 2;
+    grid-column: span 2;
+    aspect-ratio: 2/1; /* Aspect ratio for grid item 11 */
+  }
+
+  .grid-item-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .slideshow-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slideshow-img1 {
+    width: 1300%; /* Set the width to 500% of the container to accommodate all images */
+    height: 100%;
+    display: flex;
+    transition: transform .8s ease-in-out; /* Apply smooth transition for slide effect */
+  }
+  
+  .slideshow-img2 {
+    width: 700%; /* Set the width to 500% of the container to accommodate all images */
+    height: 100%;
+    display: flex;
+    transition: transform .8s ease-in-out; /* Apply smooth transition for slide effect */
+  }
+  
+  .slideshow-img3 {
+    width: 500%; /* Set the width to 500% of the container to accommodate all images */
+    height: 100%;
+    display: flex;
+    transition: transform .8s ease-in-out; /* Apply smooth transition for slide effect */
+  }
+
+  .slideshow-img img {
+    width: 20%; /* Set the width of each image to 20% to evenly distribute them */
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .slideshow-text {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-size:1em;
+    color:white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px white;
+  }
+  
+  .card-text {
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    width: 100%;
+    font-size:1em;
+    text-align:center;
+    color:white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px white;
+  }
+  
+  .text-highlight {  
+  color: #00a2ff;
+  text-decoration:underline;
+}
+
+
+/* style inputs and link buttons */
+.btn {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 12px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.github {
+  background-color: #333;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 90%;
+  margin: auto;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+  @media screen and (max-width: 699px) {
+  
+     .whisper-regular {
+      font-size:50px;
+}
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, auto);
+    }
+    
+    .grid-item-1 {
+      grid-row: span 2;
+      grid-column: span 2;
+      aspect-ratio: 1/0.5; /* Aspect ratio for grid item 1 */
+    }
+    
+    .grid-item-9 {
+      aspect-ratio: 2/1; /* Aspect ratio for grid item 9 */
+      grid-column: span 2;
+    }
+    
+    .hide-small {
+      display: none;
+    }
+    
+    .card-text {
+      font-size:12px;
+      width: 100%;
+    }
+    
+    .btn-on-img2 {
+    top: 35%;
+    }
+    
+    .slideshow-container {
+    height: 100%;
+  }
+    
+    .slideshow-text {
+    top: 85%;
+    font-size:13px;
+  }
+  
+  .card-text {
+    top: 93.5%;
+    font-size:13px;
+  }
+  .close-btn {
+    width:90%!important;
+   }
+ }
+
+    /* Styles for the modals */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow:auto;
+        background-color: #f2f2f2;
+        animation: zoomIn 0.8s ease-out;
+    }
+    .modal-content {
+        background-color: #f2f2f2;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        height:100vh;
+        text-align: center;
+    }
+    /* Styles for the buttons */
+    .close-btn {
+    	padding: 8px 10px;
+        background-color: #fa442f;
+        color: #fff;
+        border: none;
+        border-radius: 1px;
+        cursor: pointer;
+        width:20%;
+        margin-bottom: 20px;
+    }
+    
+    a {
+    	text-decoration:none;
+        color:white;
+    }
+    
+    .btn-on-img3 {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0.2rem 1.6rem;
+    white-space: nowrap;
+    color:black;
+    border: 2px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .btn-on-img3:hover {
+    border-color: none;
+    color:white;
+    background: rgb(255, 255, 255, 0.5);
+  }
+  
+  .btn-on-img4 {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0.2rem 1.6rem;
+    white-space: nowrap;
+    color:black;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+    
+   .btn-on-img4:hover {
+    border-color: none;
+    color:black;
+    background: rgb(255, 255, 255, 0.5);
+  }
+    
+    /* Keyframes for zoom-in animation */
+    @keyframes zoomIn {
+        0% {
+            transform: scale(0);
+        }
+        85% {
+            transform: scale(1.01);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
