@@ -389,7 +389,7 @@
   .btn-on-img3:hover {
     border-color: none;
     color:white;
-    background: rgb(255, 255, 255, 0.5);
+    background: rgb(255, 255, 255, 0.8);
   }
   
   .btn-on-img4 {
@@ -410,7 +410,7 @@
    .btn-on-img4:hover {
     border-color: none;
     color:black;
-    background: rgb(255, 255, 255, 0.5);
+    background: rgb(255, 255, 255, 0.8);
   }
     
     /* Keyframes for zoom-in animation */
