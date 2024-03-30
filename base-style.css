@@ -179,7 +179,7 @@
   }
 
   .slideshow-img1 {
-    width: 1300%; /* Set the width to 500% of the container to accommodate all images */
+    width: 1500%; /* Set the width to 500% of the container to accommodate all images */
     height: 100%;
     display: flex;
     transition: transform .8s ease-in-out; /* Apply smooth transition for slide effect */
