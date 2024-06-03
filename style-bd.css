@@ -1,0 +1,635 @@
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: .004em;
+        font-size: 15px;
+        background-color: #f1f1f1;
+      }
+
+      .topnav {
+        overflow: hidden;
+        background-color: #7aaae0;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 15px 16px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .topnav a:hover {
+        background-color: white;
+        color: black;
+      }
+
+      /* Create a right-aligned (split) link inside the navigation bar */
+      .topnav a.split {
+        float: right;
+        color: white;
+      }
+
+      .topnav a.split:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: -1px;
+        background-color: #7aaae0;
+        border-right: 1px solid lightgrey;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+
+      .sidenav a {
+        padding: 8px 8px 8px 22px;
+        text-decoration: none;
+        display: block;
+        transition: 0.2s;
+      }
+
+      .sidenav a:hover {
+        color: black;
+        background-color: white;
+      }
+
+      .sidenav .closebtn {
+        position: absolute;
+        top: 6px;
+        right: 5px;
+        font-size: 30px;
+        color: red;
+        width: 50px;
+        text-align: center;
+        border-radius: 50px;
+      }
+
+      .main {
+        height: 100%;
+      }
+
+      .column {
+        float: left;
+        width: 50%;
+        padding: 0 8px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Style the balance cards */
+      .card {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09);
+        padding: 10px 16px;
+      }
+
+      .card .title {
+        font-size: 12px;
+        color: white;
+        font-weight: 400;
+        margin-bottom: 8px;
+        line-height: 1.2em;
+        letter-spacing: 0.03em;
+        margin-top: 5px;
+      }
+
+      .card .value {
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        line-height: 1em;
+        color: white;
+        margin: 10px 0 10px 0px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn {
+        background: #6236FF;
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 2px;
+        transition: 0.2s;
+      }
+
+      .btn:active {
+        transform: scale(0.90);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .icon-text {
+        font-size: 12.5px;
+        text-align: center;
+      }
+
+      .transactions {
+        padding: 0px;
+      }
+
+      .transactions-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .transactions-heading .title {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.4em;
+        margin: 8px 0;
+      }
+
+      .transactions .item-card {
+        background: #ffffff;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
+        padding: 16px 16px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.2s;
+      }
+
+      .transactions .item-card:active {
+        transform: scale(0.99);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .transactions .item-card:last-child {
+        margin-bottom: 0;
+      }
+
+      .transactions .item-card p {
+        font-size: 11px;
+        margin: 0;
+        color: #958d9e;
+        font-weight: 500;
+      }
+
+      .transactions .item-card .detail {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        line-height: 1.2em;
+      }
+
+      .transactions .item-card .detail .info-btn {
+        margin-right: 16px;
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 24px;
+      }
+
+      .transactions .item-card .detail strong {
+        display: block;
+        font-weight: 500;
+        color: black;
+        margin-bottom: 5px;
+      }
+
+      .transactions .item-card .right {
+        padding-left: 10px;
+      }
+
+      .transactions .item-card .right .price {
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+
+      /* The Modal (background) */
+      .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 99;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Black w/ opacity */
+        -webkit-animation-name: fadeIn;
+        /* Fade in the background */
+        -webkit-animation-duration: 0.4s;
+        animation-name: fadeIn;
+        animation-duration: 0.4s
+      }
+
+      /* Modal Content */
+      .modal-content {
+        position: fixed;
+        bottom: 0;
+        background-color: #fefefe;
+        width: 100%;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s
+      }
+
+      .modal-header {
+        padding: 8px 16px;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .modal-body {
+        padding: 5px 16px;
+      }
+
+      .modal-footer {
+        padding: 2px 8px;
+      }
+
+      /* Add Animation */
+      @-webkit-keyframes slideIn {
+        from {
+          bottom: -300px;
+          opacity: 0
+        }
+
+        to {
+          bottom: 0;
+          opacity: 1
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          bottom: -300px;
+          opacity: 0
+        }
+
+        to {
+          bottom: 0;
+          opacity: 1
+        }
+      }
+
+      @-webkit-keyframes fadeIn {
+        from {
+          opacity: 0
+        }
+
+        to {
+          opacity: 1
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0
+        }
+
+        to {
+          opacity: 1
+        }
+      }
+
+      input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        margin-bottom: 8px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 15px;
+      }
+
+      .btn-2 {
+        background: #6236FF;
+        width: 100%;
+        padding: 12px 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 15px;
+        margin-bottom: 5px;
+        transition: 0.2s;
+      }
+
+      .btn-2:active {
+        transform: scale(0.90);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      ul {
+        list-style: none !important;
+        margin-bottom: 16px;
+        padding: 0;
+      }
+
+      li {
+        border-bottom: 1px solid lightgrey;
+        padding: 15px;
+      }
+
+      li .left {
+        float: left;
+      }
+
+      li .right {
+        float: right;
+      }
+
+      .btn-3 {
+        background: #6236FF;
+        width: 48%;
+        padding: 12px 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 15px;
+        margin-bottom: 5px;
+        transition: 0.2s;
+      }
+
+      .btn-3:active {
+        transform: scale(0.90);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      /* The Delete Modal (background) */
+      /* Modal Content */
+      .delete-modal-content {
+        position: relative;
+        background-color: #fefefe;
+        width: 100%;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s
+      }
+
+      .delete-modal-header {
+        padding: 8px 16px;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .delete-modal-body {
+        padding: 5px 16px;
+      }
+
+      .delete-modal-footer {
+        padding: 2px 16px;
+      }
+
+      /* Basic settings */
+      
+      /* Size settings */
+      .tiny {font-size:10px!important;}
+      .small {font-size:12px!important;}
+      .meduim {font-size:15px!important;}
+      .large {font-size:18px!important;}
+      .xlarge {font-size:24px!important;}
+      .xxlarge {font-size:36px!important;}
+      .xxxlarge {font-size:48px!important;}
+      .jumbo {font-size:48px!important;}
+      /* Padding settings */
+      .p-s {
+        padding: 4px 8px !important
+      }
+
+      .p-m {
+        padding: 8px 16px !important
+      }
+
+      .p-l {
+        padding: 12px 24px !important
+      }
+
+      .p-top {
+        padding-top: 16px !important
+      }
+
+      .p-bottom {
+        padding-bottom: 16px !important
+      }
+
+      .p-left {
+        padding-left: 16px !important
+      }
+
+      .p-right {
+        padding-right: 16px !important
+      }
+
+      /* Margin settings */
+      .m-xs {
+        margin: 8px !important
+      }
+
+      .m-s {
+        margin: 16px !important
+      }
+
+      .m-m {
+        margin: 32px !important
+      }
+
+      .m-l {
+        margin: 64px !important
+      }
+
+      .m-top {
+        margin-top: 16px !important
+      }
+
+      .m-bottom {
+        margin-bottom: 16px !important
+      }
+
+      .m-left {
+        margin-left: 16px !important
+      }
+
+      .m-right {
+        margin-right: 16px !important
+      }
+
+      /* Alignment settings */
+      .center {
+        text-align: center !important
+      }
+
+      /* Cursor settings */
+      @media screen and (min-width: 550px) {
+        .pointer {
+          cursor: pointer !important
+        }
+      }
+
+      hr {
+        border-top: 1px solid #f0f0f0;
+      }
+
+      /*Bg Color settings */
+      .bg-white {
+        background-color: white !important;
+      }
+
+      .bg-black {
+        background-color: black !important;
+      }
+
+      .bg-red {
+        background-color: #ff4b4b !important;
+      }
+
+      .bg-blue {
+        background-color: #2196F3 !important;
+      }
+
+      .bg-light-grey {
+        background-color: #f1f1f1 !important;
+      }
+
+      .bg-green {
+        background-color: #1DCC70 !important;
+      }
+
+      .bg-orange {
+        background-color: #ffbb00 !important
+      }
+
+      /*Text Color settings */
+      .text-white,
+      .text-hover-white:hover {
+        color: white !important;
+      }
+
+      .text-black,
+      .text-hover-black:hover {
+        color: black !important;
+      }
+
+      .text-red,
+      .text-hover-red:hover {
+        color: #ff4b4b !important;
+      }
+
+      .text-blue,
+      .text-hover-blue:hover {
+        color: #2196F3 !important;
+      }
+
+      .text-light-grey,
+      .text-hover-light-grey:hover {
+        color: #f1f1f1 !important;
+      }
+
+      .text-green,
+      .text-hover-green:hover {
+        color: #1DCC70 !important;
+      }
+
+      .text-link {
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      .text-link:hover {
+        font-size: 14px;
+        text-decoration: underline;
+      }
+
+      /* Border settings */
+      .border {
+        border: 1px solid #eee;
+      }
+
+      .border-top {
+        border-top: 1px solid #eee;
+      }
+
+      .border-bottom {
+        border-bottom: 1px solid #eee;
+      }
+
+      .border-left {
+        border-left: 1px solid #eee;
+      }
+
+      .border-right {
+        border-right: 1px solid #eee;
+      }
+
+      .border-red {
+        border-color: #f44336 !important
+      }
+
+      .border-lightgrey {
+        border-color: #f1f1f1 !important
+      }
+
+      /* Border radius settings */
+      .round-s {
+        border-radius: 2px !important
+      }
+
+      .round-m {
+        border-radius: 4px !important
+      }
+
+      .round-l {
+        border-radius: 8px !important
+      }
+
+      .round-xl {
+        border-radius: 16px !important
+      }
+
+      .round-xxl {
+        border-radius: 32px !important
+      }
