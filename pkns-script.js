@@ -89,5 +89,5 @@
       startSlideProgress(e.to);
      });
     }, 500);
-   }, 40);
+   }, 4000);
   });
