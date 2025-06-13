@@ -58,16 +58,16 @@
    bar.style.width = '10%';
    setTimeout(() => {
     bar.style.width = '45%';
-   }, 800);
-   setTimeout(() => {
-    bar.style.width = '55%';
    }, 950);
    setTimeout(() => {
+    bar.style.width = '55%';
+   }, 1150);
+   setTimeout(() => {
     bar.style.width = '68%';
-   }, 1000);
+   }, 1200);
    setTimeout(() => {
     bar.style.width = '74%';
-   }, 1200);
+   }, 1250);
    setTimeout(() => {
     bar.style.width = '100%';
    }, 3000);
