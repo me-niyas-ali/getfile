@@ -26,8 +26,8 @@
   const isDark = html.getAttribute('data-bs-theme') === 'dark';
   html.setAttribute('data-bs-theme', isDark ? 'light' : 'dark');
   darkToggle.innerHTML = isDark
-    ? '<i class="bi bi-sun-fill"></i>'
-    : '<i class="bi bi-moon-fill"></i>';
+    ? '<i class="bi bi-moon-fill"></i>'
+    : '<i class="bi bi-sun-fill"></i>';
 });
 
   // Scroll to top functionality
