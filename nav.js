@@ -1,24 +1,24 @@
-      $(document).ready(function() {
-        $('#homeBtn').addClass('active-btn');
+jQuery(document).ready(function() {
+        jQuery('#homeBtn').addClass('active-btn');
       });
-      $('#homeBtn').click(function() {
-        $('.nav-btn').removeClass('active-btn');
-        $(this).addClass('active-btn');
-        $('#main').delay(200).fadeIn(500);
-        $('#mainProfileCard').fadeOut(400);
-        $('#mainProjectsCard').fadeOut(400);
+      jQuery('#homeBtn').click(function() {
+        jQuery('.nav-btn').removeClass('active-btn');
+        jQuery(this).addClass('active-btn');
+        jQuery('#main').delay(200).fadeIn(500);
+        jQuery('#mainProfileCard').fadeOut(400);
+        jQuery('#mainProjectsCard').fadeOut(400);
       });
-      $('#profileBtn').click(function() {
-        $('.nav-btn').removeClass('active-btn');
-        $(this).addClass('active-btn');
-        $('#main').fadeOut(400);
-        $('#mainProjectsCard').fadeOut(400);
-        $('#mainProfileCard').delay(200).fadeIn(500);
+      jQuery('#profileBtn').click(function() {
+        jQuery('.nav-btn').removeClass('active-btn');
+        jQuery(this).addClass('active-btn');
+        jQuery('#main').fadeOut(400);
+        jQuery('#mainProjectsCard').fadeOut(400);
+        jQuery('#mainProfileCard').delay(200).fadeIn(500);
       });
-      $('.projectsBtn').click(function() {
-        $('.nav-btn').removeClass('active-btn');
-        $('#projectsBtn').addClass('active-btn');
-        $('#main').fadeOut(400);
-        $('#mainProfileCard').fadeOut(500);
-        $('#mainProjectsCard').delay(200).fadeIn(500);
+      jQuery('.projectsBtn').click(function() {
+        jQuery('.nav-btn').removeClass('active-btn');
+        jQuery('#projectsBtn').addClass('active-btn');
+        jQuery('#main').fadeOut(400);
+        jQuery('#mainProfileCard').fadeOut(500);
+        jQuery('#mainProjectsCard').delay(200).fadeIn(500);
       });
