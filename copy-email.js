@@ -1,4 +1,4 @@
-  const email = 'copy-email'; // Your single email
+  const email = 'copy-email'; // Your email
   const buttons = document.querySelectorAll('.copy-email');
 
   buttons.forEach(button => {
