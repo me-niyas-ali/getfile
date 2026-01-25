@@ -237,7 +237,6 @@
 
 /* style inputs and link buttons */
 .btn {
-  width: 100%;
   padding: 6px;
   border: none;
   border-radius: 4px;
@@ -427,3 +426,4 @@
             transform: scale(1);
         }
     }
+
