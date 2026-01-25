@@ -1,4 +1,4 @@
-const email = 'example@email.com'; // your email to copy
+const email = 'example@email.com';
 const buttons = document.querySelectorAll('.copy-email');
 
 buttons.forEach(button => {
