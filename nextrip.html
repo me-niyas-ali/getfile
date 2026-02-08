@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NEXTRIP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    :root {
+      --yellow: #ffc107;
+      --dark: #0b0b0b;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      width: 300px;
+      background: white;
+      color: #000;
+      transition: all 0.3s;
+      min-height: 100dvh;
+      position: fixed;
+      left: -300px;
+      top: 0;
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #dee2e6;
+    }
+
+    #sidebar.active {
+      left: 0;
+    }
+
+    #sidebar .nav-link {
+      color: #000;
+    }
+
+    #sidebar .nav-link:hover {
+      background: var(--yellow);
+      color: #000;
+    }
+
+    #sidebar .btn-close {
+      float: right;
+      margin: 10px;
+    }
+
+    /* Overlay */
+    #nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+      display: none;
+    }
+
+    #nav-overlay.active {
+      display: block;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    /* Navbar & Top Bar */
+    .top-bar {
+      background: var(--dark);
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .top-bar i {
+      color: var(--yellow);
+      margin-right: 5px;
+    }
+
+    .navbar {
+      background: var(--yellow);
+    }
+
+    .nextrip-logo {
+      width: 150px;
+    }
+
+    .btn-on-yellow {
+      color: #000;
+      font-weight: 600;
+      border-radius: 10px;
+      border: 2px solid var(--dark);
+    }
+
+    .btn-on-yellow:hover {
+      background: var(--dark);
+      color: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://media.istockphoto.com/id/519870714/photo/taxi.jpg?s=2048x2048&w=is&k=20&c=t5NDzIBXBh5OM0-4jRcbnZVPOWpSSQL7X7yaYG4JqJs=') center/cover no-repeat;
+      color: white;
+      padding: 40px 0;
+    }
+
+    .input-icon {
+      position: relative;
+    }
+
+    .input-icon i {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6c757d;
+      pointer-events: none;
+    }
+
+    .input-icon input {
+      padding-right: 40px;
+    }
+
+    .section-padding {
+      padding: 70px 0;
+    }
+
+    /* Services */
+    .service-card {
+      background: #fff;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid lightgrey;
+    }
+
+    .icon-circle {
+      width: 60px;
+      height: 60px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -30px;
+      right: 10px;
+      color: #000;
+      font-size: 30px;
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: #000;
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 8px 18px;
+    }
+
+    .btn-yellow:hover {
+      background: var(--dark);
+      color: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    /* Taxi Pattern */
+    .taxi-pattern {
+      height: 20px;
+      background: repeating-linear-gradient(90deg,
+          #ffc107 0,
+          #ffc107 20px,
+          #000 20px,
+          #000 40px);
+    }
+
+    .taxi-tabs .nav-link {
+      margin: 5px;
+      font-size: 14px;
+      background: var(--white);
+      color: #000;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 8px 18px;
+      border: 1px solid lightgrey;
+    }
+
+    .taxi-tabs .nav-link:hover,
+    .taxi-tabs .nav-link.active {
+      background: var(--yellow);
+      color: var(--dark);
+      border: 1px solid var(--dark);
+    }
+
+    .taxi-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .taxi-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .category {
+      color: #ffc107;
+      font-weight: 600;
+    }
+
+    .taxi-features {
+      list-style: none;
+      padding: 0 30px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .taxi-features li {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+
+    .taxi-features i {
+      color: #ffc107;
+      margin-right: 6px;
+    }
+
+    .testimonial-section {
+      background: #000;
+      height: 520px;
+    }
+
+    .swiper {
+      padding: 20px;
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      color: #333;
+      padding: 25px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .testimonial-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: #ffc107;
+      border-radius: 20px 0 20px 0;
+    }
+
+    .client-info img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 3px solid #ffc107;
+      margin-right: 12px;
+    }
+
+    .stars {
+      color: #ffc107;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Styles for screens 600px and wider (e.g., tablets, desktops) */
+    @media (min-width: 600px) {
+      .nextrip-logo {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Overlay -->
+  <div id="nav-overlay"></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+      <h5 class="m-0">Menu</h5>
+      <button type="button" id="closeSidebar" class="btn-close"></button>
+    </div>
+    <ul class="nav flex-column mb-auto">
+      <li><a href="#content" class="nav-link py-3 border-bottom"><i class="bi bi-house me-2 fs-5"></i>Home</a></li>
+      <li><a href="#services" class="nav-link py-3 border-bottom"><i class="bi bi-gear me-2 fs-5"></i>Services</a></li>
+      <li><a href="#fleet" class="nav-link py-3 border-bottom"><i class="bi bi-taxi-front me-2 fs-5"></i>Our Fleet</a>
+      </li>
+      <li><a href="#testimonials"
+          class="nav-link py-3 border-bottom"><i class="bi bi-chat-left-text me-2 fs-5"></i>Testimonials</a></li>
+      <li><a href="#footer" class="nav-link py-3 border-bottom"><i class="bi bi-telephone me-2 fs-5"></i>Contact</a>
+      </li>
+    </ul>
+
+    <div class="p-4 border-top">
+      <button class="btn closeSb btn-on-yellow w-100" data-bs-toggle="modal" data-bs-target="#bookingModal"> Book Now</button>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content">
+
+    <!-- Top Bar (Mobile Only) -->
+    <div class="top-bar py-2 d-md-none">
+      <div class="container text-center">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-pause="false" data-bs-ride="carousel"
+          data-bs-interval="3000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <i class="fa fa-mobile-alt"></i> Online Booking
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-suitcase-lg-fill"></i> Corporate Travel
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-airplane-fill"></i> Airport Transport
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-map-fill"></i> Outstation Trips
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-buildings-fill"></i> City Rides
+            </div>
+            <div class="carousel-item">
+              <i class="bi bi-clock-fill"></i> Hourly Hire
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top Bar (Large Only) -->
+    <div class="top-bar py-2 d-none d-md-block">
+      <div class="container d-flex text-center gap-3 justify-content-around">
+        <div>
+          <a href="tel:919961373356" class="btn p-0 text-white"><i class="fa fa-phone"></i> +91 9961373356</a>
+        </div>
+        <div>
+          <a href="mailto:someone@example.com" class="btn p-0 text-white"><i class="fa fa-envelope"></i>
+            info@nextrip.co.in</a>
+
+        </div>
+        <div>
+          <a href="tel:919961736001" class="btn p-0 text-white"><i class="fa fa-phone"></i> +91 9961736001</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container d-flex align-items-center flex-nowrap">
+        <img src="https://me-niyas-ali.github.io/getfile/nextrip-pro-nobg.png" class="img-fluid nextrip-logo ms-2" alt="nextrip-logo">
+        <div class="d-flex justify-content-end">
+          <a class="btn btn-yellow me-2 d-md-block d-none" href="#content">Home</a>
+          <a class="btn btn-yellow me-2 d-md-block d-none" href="#services">Services</a>
+          <a class="btn btn-yellow me-2 d-md-block d-none" href="#fleet" style="white-space: nowrap;">Our Fleet</a>
+          <a class="btn btn-yellow me-2 d-md-block d-none" href="#testimonials">Testimonials</a>
+          <a class="btn btn-yellow me-2 d-md-block d-none" href="#footer">Contact</a>
+        </div>
+        <button class="btn btn-on-yellow me-2 d-md-none" id="sidebarToggle">Menu</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section & Booking-->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="fw-bold mb-3">Premium Chauffeur Taxi Service</h1>
+            <p class="mb-4">
+              Reliable, safe and luxury chauffeur-driven rides for airport,
+              corporate, city and long-distance travel.
+            </p>
+          </div>
+          <div class="col-lg-5 offset-lg-1">
+            <div class="card p-4">
+              <h4 class="mb-3 text-center">Book Your Ride</h4>
+              <form onsubmit="sendWhatsApp(); return false;">
+                <div class="input-icon mb-2">
+                  <input type="text" id="pickup" class="form-control" placeholder="Pickup Location" required>
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+
+                <div class="input-icon mb-2">
+                  <input type="text" id="drop" class="form-control" placeholder="Drop Location" required>
+                  <i class="bi bi-geo"></i>
+                </div>
+
+                <div class="input-icon mb-2">
+                  <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+                  <i class="bi bi-person"></i>
+                </div>
+
+                <div class="input-icon mb-2">
+                  <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}" placeholder="10-digit Phone Number" required>
+                  <i class="bi bi-telephone"></i>
+                </div>
+
+                <div class="input-icon mb-3">
+                  <input type="text" id="date" class="form-control" placeholder="Pickup Date" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" required>
+                  <i class="bi bi-calendar-event"></i>
+                </div>
+
+                <button type="submit" class="btn btn-on-yellow w-100">
+         Book Now
+        </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Taxi Pattern -->
+    <div class="taxi-pattern"></div>
+
+    <!-- Services Section -->
+    <section class="py-5" id="services">
+      <div class="container">
+
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+          <small class="text-warning fw-bold text-uppercase">Services</small>
+          <h2 class="fw-bold">Our Best Services For <span class="text-warning"> You</span></h2>
+          <div class="mx-auto mt-2" style="width:100px;height:3px;background:#ffc107;"></div>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="row m-1 g-5">
+
+          <!-- Service Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="service-card">
+              <div class="icon-circle">
+                <i class="fa fa-mobile-alt"></i>
+              </div>
+              <div class="p-4">
+                <h5 class="fw-bold mt-2">Online Booking</h5>
+                <p>
+                  Book your taxi instantly with our simple and secure online booking instantly—anytime, anywhere.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="service-card">
+              <div class="icon-circle">
+                <i class="fa fa-briefcase"></i>
+              </div>
+              <div class="p-4">
+                <h5 class="fw-bold mt-2">Business Transport</h5>
+                <p>
+                  Perfect for corporate travel, meetings, and events, featuring premium vehicles and trained drivers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="service-card">
+              <div class="icon-circle">
+                <i class="fa fa-plane"></i>
+              </div>
+              <div class="p-4">
+                <h5 class="fw-bold mt-2">Airport Transport</h5>
+                <p>
+                  Never be late again. On-time airport pickups and drop-offs with complete comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="service-card">
+              <div class="icon-circle">
+                <i class="fa fa-city"></i>
+              </div>
+              <div class="p-4">
+                <h5 class="fw-bold mt-2">City Transport</h5>
+                <p>
+                  Get around the city comfortably with our reliable city transport with professional drivers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="service-card">
+              <div class="icon-circle">
+                <i class="fa fa-route"></i>
+              </div>
+              <div class="p-4">
+                <h5 class="fw-bold mt-2">Tour Transport</h5>
+                <p>
+                  Explore the city and nearby attractions with our guided tour transport service.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="service-card">
+              <div class="icon-circle">
+                <i class="fa fa-clock"></i>
+              </div>
+              <div class="p-4">
+                <h5 class="fw-bold mt-2">Hourly Transport</h5>
+                <p>
+                  Hire a taxi by the hour for flexible travel, multiple stops, and complete convenience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Fleet Section -->
+    <section class="py-5 m-auto" style="max-width:800px;" id="fleet">
+      <div class="container">
+
+        <!-- Section Title -->
+        <div class="text-center mb-4">
+          <small class="text-warning fw-bold text-uppercase">Our Fleet</small>
+          <h2 class="fw-bold">Our Fleet For<span class="text-warning"> You</span></h2>
+          <div class="mx-auto mt-2" style="width:70px;height:3px;background:#ffc107;"></div>
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-pills justify-content-center mb-5 taxi-tabs">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#sedan">Sedan</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#mpv">MPV</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#bus-traveller">Bus/Traveller</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#premium">Premium Class</button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+
+          <!-- Sedan -->
+          <div class="tab-pane fade show active" id="sedan">
+            <div class="row g-4 justify-content-center">
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://www.v3cars.com/media/model-imgs/032404pearl-arctic-white.webp" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Maruti Suzuki Dzire</h5>
+                  <p class="category border-bottom">
+                    Sedan
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>4</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>4</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>2</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://www.nicepng.com/png/detail/249-2499904_bt-sedan-white-toyota-etios.png" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Toyota Platinum Etios</h5>
+                  <p class="category border-bottom">
+                    Sedan
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>4</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>4</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>2</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://img.autocarindia.com/mmv_images/colors/20250430055232_Hyundai_Aura_Atlas_White[1].png?w=728&q=75" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Hyundai Aura Atlas</h5>
+                  <p class="category border-bottom">
+                    Sedan
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>4</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>4</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>2</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MPV -->
+          <div class="tab-pane fade" id="mpv">
+            <div class="row g-4 justify-content-center">
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://static.toyotabharat.com/images/showroom/innova-hycross/super-white.png" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Toyota Innova Hycross</h5>
+                  <p class="category border-bottom">
+                    MPV
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>4</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>7,8</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>4</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://imgd.aeplcdn.com/370x208/n/396ijta_1496119.jpg?q=80" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Toyota Innova Crysta</h5>
+                  <p class="category border-bottom">
+                    MPV
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>5</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>7,8</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>4</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://imgd-ct.aeplcdn.com/1056x660/n/c6es93a_1572125.jpg?q=80" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Maruti Suzuki Ertiga</h5>
+                  <p class="category border-bottom">
+                    MPV
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>5</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>7</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>4</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://www.varunmaruti.com/uploads/products/colors/invicto-mystic-white.png" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Maruti Invicto</h5>
+                  <p class="category border-bottom">
+                    MPV
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>5</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>7,8</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>4</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bus / Traveller -->
+          <div class="tab-pane fade" id="bus-traveller">
+            <div class="row g-4 justify-content-center">
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://i0.wp.com/khivraj.com/wp-content/uploads/2025/05/Urbania-SWB.png?fit=438%2C226&ssl=1" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Force Urbania</h5>
+                  <p class="category border-bottom">
+                    10,12,17,19,26 Seater
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>3</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>10,12,17,19,26</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>-</span></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Vehicle Card -->
+              <div class="col-md-6">
+                <div class="taxi-card border">
+                  <img src="https://static.vecteezy.com/system/resources/thumbnails/060/371/279/small/modern-white-coach-bus-parked-in-urban-environment-with-clear-skies-photo.jpeg" class="img-fluid rounded mb-3">
+                  <h5 class="fw-bold">Tourist Bus (AC/Non-AC)</h5>
+                  <p class="category border-bottom">
+                    34,49 Seater
+                  </p>
+                  <ul class="taxi-features">
+                    <li><i class="fa fa-car"></i> Doors: <span>2</span></li>
+                    <li><i class="fa fa-user"></i> Passengers: <span>34, 49</span></li>
+                    <li><i class="fa fa-suitcase"></i> Luggage Carry: <span>-</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Premium Vehicles -->
+          <div class="tab-pane fade text-center" id="premium">
+            All premium class vehicles available.<br>Contact us for more details.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <div class="taxi-pattern"></div>
+
+    <section class="testimonial-section py-5 text-white" id="testimonials">
+      <div class="container">
+
+        <!-- Title -->
+        <div class="text-center mb-5">
+          <small class="text-warning fw-bold text-uppercase">Testimonials</small>
+          <h2 class="fw-bold">
+            What Our Clients <span class="text-warning">Say</span>
+          </h2>
+          <div class="mx-auto mt-2" style="width:100px;height:3px;background:#ffc107;"></div>
+        </div>
+
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- Item 1 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="client-info d-flex align-items-center mb-3">
+                  <img src="https://pkns-youngstarclub.github.io/get-file/web-files/avatar.jpeg">
+                  <div>
+                    <h6 class="mb-0">Chandni</h6>
+                    <small class="text-warning">Customer</small>
+                  </div>
+                </div>
+                <p>
+                  The service was excellent, driver was very helpful and car was very clean and comfortable. We would
+                  recommend your service and use it again.
+                </p>
+                <div class="stars">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="client-info d-flex align-items-center mb-3">
+                  <img src="https://pkns-youngstarclub.github.io/get-file/web-files/avatar.jpeg">
+                  <div>
+                    <h6 class="mb-0">Rahil</h6>
+                    <small class="text-warning">Customer</small>
+                  </div>
+                </div>
+                <p>
+                  Driver was waiting when we arrived at airport and delivered us to our destination with no problems.
+                </p>
+                <div class="stars">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="client-info d-flex align-items-center mb-3">
+                  <img src="https://pkns-youngstarclub.github.io/get-file/web-files/avatar.jpeg">
+                  <div>
+                    <h6 class="mb-0">Tijo Mathew</h6>
+                    <small class="text-warning">Customer</small>
+                  </div>
+                </div>
+                <p>
+                  Driver arrived on time, was pleasant and efficient, vehicle was appropriate, arrived at airport on
+                  time, driver did drive quite fast but otherwise safely.
+                </p>
+                <div class="stars">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="client-info d-flex align-items-center mb-3">
+                  <img src="https://pkns-youngstarclub.github.io/get-file/web-files/avatar.jpeg">
+                  <div>
+                    <h6 class="mb-0">Ashik</h6>
+                    <small class="text-warning">Customer</small>
+                  </div>
+                </div>
+                <p>
+                  Everything worked perfectly. Driver waiting with my name, fast, efficient service. Would use again.
+                  Thank you.
+                </p>
+                <div class="stars">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="client-info d-flex align-items-center mb-3">
+                  <img src="https://pkns-youngstarclub.github.io/get-file/web-files/avatar.jpeg">
+                  <div>
+                    <h6 class="mb-0">Alex Morgan</h6>
+                    <small class="text-warning">Customer</small>
+                  </div>
+                </div>
+                <p>
+                  I was very pleased by the quality and efficiency of your service. The taxi was on time and the driver
+                  was helpful and smiling.
+                </p>
+                <div class="stars">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="taxi-pattern"></div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-5" id="footer">
+      <div class="container-sm">
+        <div class="row text-center text-md-start align-items-center">
+
+          <!-- Contact Info -->
+          <div class="col-md-4 mb-3 mb-md-0">
+            <p class="mb-1 text-dark">
+              <a href="tel:919961373356"
+                class="btn p-0"><i class="fa fa-phone me-2"></i><i class="bi bi-whatsapp me-2"></i> +91 9961373356</a>
+            </p>
+            <p class="mb-1 text-dark">
+              <a href="tel:919961736001"
+                class="btn p-0"><i class="fa fa-phone me-2"></i><i class="bi bi-whatsapp me-2"></i> +91 9961736001</a>
+            </p>
+            <p class="mb-0 text-dark">
+              <a href="mailto:someone@example.com" class="btn p-0">
+                <i class="fa fa-envelope me-2"></i> info@nextrip.co.in</a>
+            </p>
+          </div>
+
+          <hr class="d-md-none">
+
+          <!-- Copyright -->
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <p class="mb-0 text-dark">
+              © 2026 Nextrip Corporate Solutions LLC
+            </p>
+          </div>
+
+          <hr class="d-md-none">
+
+          <!-- Social Media -->
+          <div class="col-md-4 text-center text-md-end">
+            <a href="#" class="text-dark fs-4">
+              <i class="bi bi-instagram mx-2"></i></a>
+            <a href="#" class="text-dark fs-4">
+              <i class="bi bi-facebook mx-2"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title">Book Your Ride</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form onsubmit="sendWhatsApp(); return false;">
+              <div class="input-icon mb-2">
+                <input type="text" id="pickup" class="form-control" placeholder="Pickup Location" required>
+                <i class="bi bi-geo-alt"></i>
+              </div>
+
+              <div class="input-icon mb-2">
+                <input type="text" id="drop" class="form-control" placeholder="Drop Location" required>
+                <i class="bi bi-geo"></i>
+              </div>
+
+              <div class="input-icon mb-2">
+                <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+                <i class="bi bi-person"></i>
+              </div>
+
+              <div class="input-icon mb-2">
+                <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}" placeholder="10-digit Phone Number" required>
+                <i class="bi bi-telephone"></i>
+              </div>
+
+              <div class="input-icon mb-3">
+                <input type="text" id="date" class="form-control" placeholder="Pickup Date" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" required>
+                <i class="bi bi-calendar-event"></i>
+              </div>
+
+              <button type="submit" class="btn btn-on-yellow w-100">
+         Book Now
+        </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- End of #content -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Sidebar JS -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+  const content = document.getElementById('content');
+  const toggleBtn = document.getElementById('sidebarToggle');
+  const closeBtn = document.getElementById('closeSidebar');
+  const overlay = document.getElementById('nav-overlay');
+  const links = sidebar.querySelectorAll('.nav-link');
+  const closeSb = sidebar.querySelectorAll('.closeSb');
+
+  function openSidebar() {
+   sidebar.classList.add('active');
+   overlay.classList.add('active');
+   document.body.classList.add('no-scroll');
+  }
+
+  function closeSidebar() {
+   sidebar.classList.remove('active');
+   overlay.classList.remove('active');
+   document.body.classList.remove('no-scroll');
+  }
+
+  toggleBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  links.forEach(link => link.addEventListener('click', closeSidebar));
+  closeSb.forEach(link => link.addEventListener('click', closeSidebar));
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+   slidesPerView: 1,
+   spaceBetween: 20,
+   slidesPerGroup: 1,
+   loop: true,
+   autoplay: {
+    delay: 5000, // 3 seconds
+    disableOnInteraction: false,
+   },
+   breakpoints: {
+    768: {
+     slidesPerView: 2,
+     slidesPerGroup: 1
+    }
+   },
+  });
+  </script>
+
+  <script>
+    function formatDateToDDMMYYYY(dateStr) {
+  const [year, month, day] = dateStr.split("-");
+  return `${day}/${month}/${year}`;
+}
+  </script>
+
+  <script>
+    function sendWhatsApp() {
+   const name = document.getElementById("name").value;
+   const phone = document.getElementById("phone").value;
+   const pickup = document.getElementById("pickup").value;
+   const drop = document.getElementById("drop").value;
+   const rawDate = document.getElementById("date").value;
+   const date = formatDateToDDMMYYYY(rawDate);
+
+   const whatsappNumber = "918086870988"; // Your WhatsApp number
+
+   const message =
+   `🚖 *New Cab Booking* \n\n` +
+   `👤 Name: ${name}\n` +
+   `📞 Phone: ${phone}\n` +
+   `📍 Pickup: ${pickup}\n` +
+   `📍 Drop: ${drop}\n` +
+   `📅 Date: ${date}`;
+
+   const url =
+   `https://wa.me/${whatsappNumber}?text=` +
+   encodeURIComponent(message);
+
+   window.open(url, "_blank");
+  }
+  </script>
+
+
+</body>
+
+</html>
