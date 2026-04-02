@@ -29,6 +29,7 @@
    const codeText = document.getElementById("codeText");
    const copyButton = document.getElementById("copyButton");
    const retrievedText = document.getElementById("retrievedText");
+   const expiryStatus = document.getElementById("expiry-status");
    const expirySelect = document.getElementById("expirySelect");
    const pasteButton = document.getElementById("pasteButton");
    const copyRetrieved = document.getElementById("copyRetrieved");
@@ -90,18 +91,28 @@
     ding.play();
    });
    retrieveButton.addEventListener("click", async () => {
-    const code = retrieveInput.value.trim();
-    const result = await getText(code);
-    if (!result) {
-     retrievedText.value = "No text found.";
-    } else if (result.expired) {
-     retrievedText.value = "Code expired.";
-    } else {
-     const mins = Math.ceil(result.timeLeft / 60000);
-     retrievedText.value = `(Expires in ${mins} min${mins > 1 ? "s": ""})\n\n${result.text}`;
-     ding.play();
-    }
-   });
+  const code = retrieveInput.value.trim();
+  if (!code) {
+    retrievedText.value = "Please enter a code.";
+    expiryStatus.textContent = "";
+    return;
+  }
+  const result = await getText(code);
+  if (!result) {
+    retrievedText.value = "No text found.";
+    expiryStatus.textContent = "";
+  } else if (result.expired) {
+    retrievedText.value = "Code expired.";
+    expiryStatus.textContent = "";
+  } else {
+    const mins = Math.ceil(result.timeLeft / 60000);
+    // ✅ show expiry separately
+    expiryStatus.textContent = `Expires in ${mins} min${mins > 1 ? "s" : ""}`;
+    // ✅ show only text here
+    retrievedText.value = result.text;
+    ding.play().catch(() => {});
+  }
+});
    copyButton.addEventListener("click", () => {
     const code = copyButton.getAttribute("data-code");
     navigator.clipboard.writeText(code).then(() => {
