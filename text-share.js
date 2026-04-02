@@ -107,7 +107,7 @@
   } else {
     const mins = Math.ceil(result.timeLeft / 60000);
     // ✅ show expiry separately
-    expiryStatus.textContent = `Expires in ${mins} min${mins > 1 ? "s" : ""}`;
+    expiryStatus.textContent = `Expires in ${mins} min${mins > 1 ? "s" : ""}...`;
     // ✅ show only text here
     retrievedText.value = result.text;
     ding.play().catch(() => {});
